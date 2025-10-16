@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "admin-page-finder"
+version = "0.1.0"
+description = "Fast async admin page finder with modern HTTP, CLI, and wordlists"
+readme = "README.md"
+authors = [
+  { name = "Admin Page Finder Maintainers" }
+]
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["security", "recon", "admin", "scanner", "http"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "httpx[http2]>=0.27.0",
+  "anyio>=4.0.0",
+  "typer[all]>=0.12.3",
+  "rich>=13.7.0",
+  "tenacity>=9.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "pytest-asyncio>=0.23",
+  "respx>=0.21",
+  "mypy>=1.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/Admin-Page-Finder"
+Issues = "https://github.com/your-org/Admin-Page-Finder/issues"
+
+[project.scripts]
+apf = "admin_page_finder.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+addopts = "-q"
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
+strict_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true

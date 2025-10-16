@@ -1,0 +1,11 @@
+# Java/Spring (expanded)
+admin/
+login
+actuator/
+manage/
+management/
+manager/html
+jmx-console/
+jmx-console/HtmlAdaptor
+console/
+web-console/

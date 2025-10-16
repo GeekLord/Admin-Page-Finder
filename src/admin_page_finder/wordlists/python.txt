@@ -1,0 +1,14 @@
+# Python frameworks (expanded)
+admin/
+admin/login/
+admin/login
+accounts/login/
+accounts/login
+user/login
+users/login
+auth/login/
+auth/login
+login
+login/
+wp-admin/  # include common patterns for completeness
+wp-login.php

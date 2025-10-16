@@ -1,31 +1,36 @@
 # Admin Page Finder
-Site Admin Page Finder with Python Script
 
-Edited By [Sir.4m1R](https://t.me/Sir4m1R)
+Fast async admin page finder with modern HTTP, discovery, and wordlists.
 
-# Using Script
-Command on Windows Cmd or Linux Terminal:
+## Install
 
-python admin-page-finder.py
+```bash
+pip install -e .[dev]
+```
 
-or
+## Usage
 
-admin-page-finder.py
+```bash
+apf scan https://example.com -w src/admin_page_finder/wordlists/core.txt \
+  -c 100 --per-host 10 --rate 50 --timeout 10 \
+  --json results.json --csv results.csv \
+  --discover --cache .apf-cache.jsonl \
+  --proxy http://127.0.0.1:8080 --rotate-ua \
+  --header "X-My-Header: value" --cookie "session=abc"
+```
 
-# Git Link
-[https://github.com/The404Hacking/Admin-Page-Finder.git](https://github.com/The404Hacking/Admin-Page-Finder.git)
+- `--discover/--no-discover`: include robots.txt, sitemap.xml, homepage hints
+- `--rate/--burst`: global rate limiting
+- `--no-verify`, `--no-redirects`, `--proxy`, `--rotate-ua`, `--header`, `--cookie`
+- Outputs: human, `--json`, `--csv`
 
-git clone [https://github.com/The404Hacking/Admin-Page-Finder.git](https://github.com/The404Hacking/Admin-Page-Finder.git)
+## Wordlists
+See `src/admin_page_finder/wordlists/` for stack-specific lists.
 
-# The404Hacking
-Digital UnderGround Team
+## Development
+- Lint: `ruff check . && ruff format --check .`
+- Test: `pytest -q`
+- Pre-commit: `pre-commit install`
 
-Telegram Channel: [@The404Hacking](https://telegram.me/The404Hacking)
-
-# Follow us !
-[Telegram](https://telegram.me/The404Hacking) - [GitHub](https://github.com/The404Hacking)
-
-[YouTube](https://www.youtube.com/channel/UCNk5YxAKwrJI18ISH9hLONw/videos) - [Instagram](https://instagram.com/The404Hacking)
-
-# Contact
-Email: [Send Mail](mailto:The404Hacking.Team@Gmail.Com) - Telegram [Send Message](https://telegram.me/The404HackingAdmins)
+## License
+MIT

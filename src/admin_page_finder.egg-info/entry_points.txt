@@ -1,0 +1,2 @@
+[console_scripts]
+apf = admin_page_finder.cli:app

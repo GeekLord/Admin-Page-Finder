@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: admin-page-finder
+Version: 0.1.0
+Summary: Fast async admin page finder with modern HTTP, CLI, and wordlists
+Author: Admin Page Finder Maintainers
+License: MIT
+Project-URL: Homepage, https://github.com/your-org/Admin-Page-Finder
+Project-URL: Issues, https://github.com/your-org/Admin-Page-Finder/issues
+Keywords: security,recon,admin,scanner,http
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: httpx[http2]>=0.27.0
+Requires-Dist: anyio>=4.0.0
+Requires-Dist: typer[all]>=0.12.3
+Requires-Dist: rich>=13.7.0
+Requires-Dist: tenacity>=9.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.23; extra == "dev"
+Requires-Dist: respx>=0.21; extra == "dev"
+Requires-Dist: mypy>=1.8; extra == "dev"
+
+# Admin Page Finder
+
+Fast async admin page finder with modern HTTP, discovery, and wordlists.
+
+## Install
+
+```bash
+pip install -e .[dev]
+```
+
+## Usage
+
+```bash
+apf scan https://example.com -w src/admin_page_finder/wordlists/core.txt \
+  -c 100 --per-host 10 --rate 50 --timeout 10 \
+  --json results.json --csv results.csv \
+  --discover --cache .apf-cache.jsonl \
+  --proxy http://127.0.0.1:8080 --rotate-ua \
+  --header "X-My-Header: value" --cookie "session=abc"
+```
+
+- `--discover/--no-discover`: include robots.txt, sitemap.xml, homepage hints
+- `--rate/--burst`: global rate limiting
+- `--no-verify`, `--no-redirects`, `--proxy`, `--rotate-ua`, `--header`, `--cookie`
+- Outputs: human, `--json`, `--csv`
+
+## Wordlists
+See `src/admin_page_finder/wordlists/` for stack-specific lists.
+
+## Development
+- Lint: `ruff check . && ruff format --check .`
+- Test: `pytest -q`
+- Pre-commit: `pre-commit install`
+
+## License
+MIT
