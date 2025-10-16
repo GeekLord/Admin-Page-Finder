@@ -4,8 +4,8 @@ Version: 0.1.0
 Summary: Fast async admin page finder with modern HTTP, CLI, and wordlists
 Author: Admin Page Finder Maintainers
 License: MIT
-Project-URL: Homepage, https://github.com/your-org/Admin-Page-Finder
-Project-URL: Issues, https://github.com/your-org/Admin-Page-Finder/issues
+Project-URL: Homepage, https://github.com/GeekLord/Admin-Page-Finder
+Project-URL: Issues, https://github.com/GeekLord/Admin-Page-Finder/issues
 Keywords: security,recon,admin,scanner,http
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License

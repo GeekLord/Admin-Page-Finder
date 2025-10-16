@@ -1,12 +1,16 @@
-# Node/Express & Headless CMS (expanded)
+# Node/Express/Headless CMS
 admin/
 admin/login
 api/admin
-api/v1/admin
+cms/admin
+cms/login
 dashboard
 dashboard/login
-cms/admin
 keystone/signin
+keystone/signin/
 strapi/admin
+strapi/admin/auth/login
+directus/
+directus/admin
 ghost/ghost/
-ghost/ghost/signin
+ghost/admin/

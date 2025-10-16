@@ -8,7 +8,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential_jitter
 from .rate_limit import AsyncRateLimiter
 
 DEFAULT_HEADERS = {
-    "User-Agent": "AdminPageFinder/0.1 (+https://github.com/your-org/Admin-Page-Finder)",
+    "User-Agent": "AdminPageFinder/0.1 (+https://github.com/GeekLord/Admin-Page-Finder)",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 }
 
@@ -34,7 +34,7 @@ class AsyncHttpClient:
         self,
         timeout: float = 10.0,
         verify_tls: bool = True,
-        proxies: Optional[str] = None,
+        proxy: Optional[str] = None,
         headers: Optional[Mapping[str, str]] = None,
         follow_redirects: bool = True,
         cookies: Optional[Mapping[str, str]] = None,
@@ -54,7 +54,7 @@ class AsyncHttpClient:
             verify=verify_tls,
             http2=True,
             follow_redirects=follow_redirects,
-            proxies=proxies,
+            proxy=proxy,
             cookies=cookies,
         )
 

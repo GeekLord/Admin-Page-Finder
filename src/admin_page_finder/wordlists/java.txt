@@ -1,11 +1,17 @@
-# Java/Spring (expanded)
+# Java/Spring/Tomcat
 admin/
+admin/login
 login
-actuator/
 manage/
 management/
 manager/html
-jmx-console/
-jmx-console/HtmlAdaptor
+manager/
 console/
+console/login
+actuator/
+actuator/health
+actuator/info
+jmx-console/
+adminconsole/
 web-console/
+monitoring/

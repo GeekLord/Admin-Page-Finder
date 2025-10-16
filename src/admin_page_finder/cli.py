@@ -18,10 +18,19 @@ app = typer.Typer(help="Admin Page Finder – async scanner for common admin pat
 console = Console()
 
 
+WORDLIST_DIR = Path(__file__).parent / "wordlists"
+DEFAULT_WORDLIST = WORDLIST_DIR / "mega.txt"
+
+
 def _load_wordlist(path: Optional[Path]) -> list[str]:
-    if path and path.is_file():
-        lines = path.read_text(encoding="utf-8").splitlines()
-        return [line.strip() for line in lines if line.strip() and not line.startswith("#")]
+    wl_path = path or DEFAULT_WORDLIST
+    if wl_path and wl_path.is_file():
+        lines = wl_path.read_text(encoding="utf-8").splitlines()
+        return [
+            line.strip()
+            for line in lines
+            if line.strip() and not line.startswith("#")
+        ]
     return [
         "admin/",
         "administrator/",
@@ -32,47 +41,30 @@ def _load_wordlist(path: Optional[Path]) -> list[str]:
     ]
 
 
-@app.command()
-def scan(
-    url: str = typer.Argument(..., help="Target base URL or hostname"),
-    wordlist: Optional[Path] = typer.Option(
-        None,
-        "--wordlist",
-        "-w",
-        exists=True,
-        readable=True,
-        help="Path to wordlist file",
-    ),
-    discover: bool = typer.Option(
-        True, "--discover/--no-discover", help="Include robots/sitemap/homepage hints"
-    ),
-    concurrency: int = typer.Option(100, "--concurrency", "-c", help="Max concurrent requests"),
-    per_host: int = typer.Option(10, "--per-host", help="Per-host concurrency cap"),
-    rate_limit: Optional[float] = typer.Option(
-        None, "--rate", help="Global requests per second (float)"
-    ),
-    rate_burst: int = typer.Option(1, "--burst", help="Token bucket burst capacity"),
-    timeout: float = typer.Option(10.0, "--timeout", "-t", help="Request timeout (seconds)"),
-    json_out: Optional[Path] = typer.Option(None, "--json", help="Write results JSON to file"),
-    csv_out: Optional[Path] = typer.Option(None, "--csv", help="Write results CSV to file"),
-    proxy: Optional[str] = typer.Option(
-        None, "--proxy", help="Proxy URL (e.g. http://127.0.0.1:8080)"
-    ),
-    ua: Optional[str] = typer.Option(None, "--user-agent", help="Override User-Agent header"),
-    rotate_ua: bool = typer.Option(False, "--rotate-ua", help="Enable User-Agent rotation"),
-    header: Optional[list[str]] = typer.Option(
-        None, "--header", help="Extra header, repeated: Key: Value"
-    ),
-    cookie: Optional[list[str]] = typer.Option(
-        None, "--cookie", help="Cookie key=value (repeatable)"
-    ),
-    no_verify: bool = typer.Option(False, "--no-verify", help="Disable TLS verification"),
-    no_redirects: bool = typer.Option(False, "--no-redirects", help="Do not follow redirects"),
-    cache_file: Optional[Path] = typer.Option(None, "--cache", help="JSONL cache file for resume"),
-    log_level: str = typer.Option("INFO", "--log-level", help="Logging level"),
-    log_json: bool = typer.Option(False, "--log-json", help="Log in JSON format"),
-    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose progress output"),
-):
+def _execute_scan(
+    url: str,
+    *,
+    wordlist: Optional[Path],
+    discover: bool,
+    concurrency: int,
+    per_host: int,
+    rate_limit: Optional[float],
+    rate_burst: int,
+    timeout: float,
+    json_out: Optional[Path],
+    csv_out: Optional[Path],
+    proxy: Optional[str],
+    ua: Optional[str],
+    rotate_ua: bool,
+    header: Optional[list[str]],
+    cookie: Optional[list[str]],
+    no_verify: bool,
+    no_redirects: bool,
+    cache_file: Optional[Path],
+    log_level: str,
+    log_json: bool,
+    verbose: bool,
+) -> None:
     configure_logging(log_level, json_mode=log_json)
 
     base_paths = _load_wordlist(wordlist)
@@ -86,12 +78,12 @@ def scan(
                 k, v = h.split(":", 1)
                 headers[k.strip()] = v.strip()
 
-    cookies: dict[str, str] = {}
+    cookies_dict: dict[str, str] = {}
     if cookie:
         for c in cookie:
             if "=" in c:
                 k, v = c.split("=", 1)
-                cookies[k.strip()] = v.strip()
+                cookies_dict[k.strip()] = v.strip()
 
     cache = JsonlCache(cache_file) if cache_file else None
 
@@ -105,9 +97,9 @@ def scan(
                     timeout=timeout,
                     verify_tls=not no_verify,
                     follow_redirects=not no_redirects,
-                    proxies=proxy,
+                    proxy=proxy,
                     headers=headers or None,
-                    cookies=cookies or None,
+                    cookies=cookies_dict or None,
                 )
                 robots, sitemap, homepage = await asyncio.gather(
                     fetch_robots_paths(client, url),
@@ -137,9 +129,9 @@ def scan(
                 timeout=timeout,
                 verify_tls=not no_verify,
                 follow_redirects=not no_redirects,
-                proxies=proxy,
+                proxy=proxy,
                 headers=headers or None,
-                cookies=cookies or None,
+                cookies=cookies_dict or None,
                 rotate_user_agents=rotate_ua,
             )
             for r in results:
@@ -149,7 +141,9 @@ def scan(
 
             hits = [r for r in results if r.ok]
             if hits:
-                console.print(f"[bold green]{len(hits)} admin page(s) found[/bold green]")
+                console.print(
+                    f"[bold green]{len(hits)} admin page(s) found[/bold green]"
+                )
                 for r in hits:
                     console.print(
                         f"[green]{r.status}[/green] {r.url} "
@@ -181,8 +175,81 @@ def scan(
                     writer.writeheader()
                     for r in results:
                         writer.writerow(r.__dict__)
-
         asyncio.run(run())
+
+
+@app.command()
+def scan(
+    url: str = typer.Argument(..., help="Target base URL or hostname"),
+    wordlist: Optional[Path] = typer.Option(
+        None,
+        "--wordlist",
+        "-w",
+        exists=True,
+        readable=True,
+        help="Path to wordlist file (defaults to built-in mega list)",
+    ),
+    discover: bool = typer.Option(
+        True, "--discover/--no-discover", help="Include robots/sitemap/homepage hints"
+    ),
+    concurrency: int = typer.Option(100, "--concurrency", "-c", help="Max concurrent requests"),
+    per_host: int = typer.Option(10, "--per-host", help="Per-host concurrency cap"),
+    rate_limit: Optional[float] = typer.Option(
+        None, "--rate", help="Global requests per second (float)"
+    ),
+    rate_burst: int = typer.Option(1, "--burst", help="Token bucket burst capacity"),
+    timeout: float = typer.Option(10.0, "--timeout", "-t", help="Request timeout (seconds)"),
+    json_out: Optional[Path] = typer.Option(None, "--json", help="Write results JSON to file"),
+    csv_out: Optional[Path] = typer.Option(None, "--csv", help="Write results CSV to file"),
+    proxy: Optional[str] = typer.Option(
+        None, "--proxy", help="Proxy URL (e.g. http://127.0.0.1:8080)"
+    ),
+    ua: Optional[str] = typer.Option(None, "--user-agent", help="Override User-Agent header"),
+    rotate_ua: bool = typer.Option(False, "--rotate-ua", help="Enable User-Agent rotation"),
+    header: Optional[list[str]] = typer.Option(
+        None, "--header", help="Extra header, repeated: Key: Value"
+    ),
+    cookie: Optional[list[str]] = typer.Option(
+        None, "--cookie", help="Cookie key=value (repeatable)"
+    ),
+    no_verify: bool = typer.Option(False, "--no-verify", help="Disable TLS verification"),
+    no_redirects: bool = typer.Option(False, "--no-redirects", help="Do not follow redirects"),
+    cache_file: Optional[Path] = typer.Option(
+        None, "--cache", help="JSONL cache file for resume"
+    ),
+    log_level: str = typer.Option("INFO", "--log-level", help="Logging level"),
+    log_json: bool = typer.Option(False, "--log-json", help="Log in JSON format"),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose progress output"),
+):
+    _execute_scan(
+        url,
+        wordlist=wordlist,
+        discover=discover,
+        concurrency=concurrency,
+        per_host=per_host,
+        rate_limit=rate_limit,
+        rate_burst=rate_burst,
+        timeout=timeout,
+        json_out=json_out,
+        csv_out=csv_out,
+        proxy=proxy,
+        ua=ua,
+        rotate_ua=rotate_ua,
+        header=header,
+        cookie=cookie,
+        no_verify=no_verify,
+        no_redirects=no_redirects,
+        cache_file=cache_file,
+        log_level=log_level,
+        log_json=log_json,
+        verbose=verbose,
+    )
+
+
+@app.callback()
+def root_callback() -> None:
+    """Root command that shows help when no subcommand is provided."""
+    return
 
 
 if __name__ == "__main__":
