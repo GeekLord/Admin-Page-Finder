@@ -3,7 +3,7 @@
 [![CI](https://github.com/GeekLord/Admin-Page-Finder/actions/workflows/ci.yml/badge.svg)](https://github.com/GeekLord/Admin-Page-Finder/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-%E2%89%A53.9-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![httpx](https://img.shields.io/badge/http-client-httpx%20%5BHTTP%2F2%5D-orange)
+![httpx](https://img.shields.io/badge/http-client-httpx)
 ![Typer](https://img.shields.io/badge/CLI-Typer-9cf)
 ![AsyncIO](https://img.shields.io/badge/Concurrency-asyncio-purple)
 ![Ruff](https://img.shields.io/badge/Lint-Ruff-informational)
