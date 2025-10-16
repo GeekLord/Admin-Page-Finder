@@ -100,14 +100,14 @@ Paths from discovery (robots/sitemap/homepage) are merged and de-duplicated auto
 
 ```mermaid
 flowchart TD
-  A[Input URL] --> B[Load wordlist (mega or custom)]
+  A[Input URL] --> B[Load wordlist mega_or_custom]
   B --> C{Discovery enabled?}
   C -- Yes --> D[robots.txt]
   C -- Yes --> E[sitemap.xml]
   C -- Yes --> F[Homepage hints]
   D & E & F --> G[Merge & Deduplicate]
   C -- No --> G
-  G --> H[Concurrent async probes (httpx)]
+  G --> H[Concurrent async probes httpx]
   H --> I{Response}
   I -->|200| J[Report hit]
   I -->|302| K[Report redirect]
