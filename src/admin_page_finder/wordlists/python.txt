@@ -1,13 +1,87 @@
-# Python frameworks (Django/Flask)
+# Python frameworks (Django, Flask, FastAPI, Wagtail, Mezzanine)
+# Django
 admin/
 admin/login/
 admin/login
 admin/index/
+admin/logout/
+admin/password_change/
+admin/doc/
 accounts/login/
 accounts/login
+accounts/signup/
+accounts/password/reset/
+# Django REST Framework
+api/
+api/auth/login/
+api/v1/
+api/v2/
+api-auth/login/
+# Django Debug Toolbar
+__debug__/
+# Wagtail CMS
+cms/
+cms/login/
+wagtail/
+wagtail/login/
+admin/pages/
+admin/documents/
+admin/images/
+admin/snippets/
+# Mezzanine CMS
+admin/
+admin/page/
+admin/blog/
+# Django CMS
+en/admin/
+admin/cms/
+# Flask-Admin
+admin/
+admin/login
+flask-admin/
+# Flask-Security
+login
+register
+logout
+# FastAPI admin
+admin/
+admin/login
+docs
+redoc
+openapi.json
+# Flower (Celery monitoring)
+flower/
+flower/dashboard
+flower/tasks
+# Sentry
+sentry/
+sentry/login
+# Superset
+superset/
+superset/login/
+superset/dashboard/list/
+# Airflow
+airflow/
+airflow/login
+airflow/home
+airflow/admin/
+# Jupyter
+jupyter/
+notebooks/
+lab/
+hub/login
+hub/signup
+# MLflow
+mlflow/
+# Prefect
+prefect/
+orion/
+# Streamlit
+_stcore/
+# Generic Python
 user/login
 users/login
 panel/
 panel/login
-cms/
-cms/login
+dashboard/
+dashboard/login
