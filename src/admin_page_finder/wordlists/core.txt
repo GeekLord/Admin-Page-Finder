@@ -1,4 +1,5 @@
 # Core admin paths (expanded)
+# Generic admin/login endpoints common across all platforms
 admin/
 admin
 admin/login
@@ -9,6 +10,8 @@ login
 signin
 sign-in
 sign_in
+auth/login
+auth/signin
 user/login
 users/login
 account/login
@@ -52,15 +55,46 @@ superadmin/
 superadmin/login
 root/
 root/login
+# WordPress
 wp-admin/
 wp-login.php
 wp/wp-admin/
 wp/wp-login.php
+# Joomla
 joomla/administrator/
+# Drupal
 drupal/user/login
 drupal/admin
+# Magento
 magento/admin
+# OpenCart
 opencart/admin
+# PrestaShop
 prestashop/admin
+# phpMyAdmin / Adminer
 phpmyadmin
 adminer.php
+# API-based admin endpoints
+api/admin
+api/admin/login
+api/v1/admin
+api/v1/auth/login
+api/v2/admin
+_admin/
+_admin/login
+# SSO / OAuth
+oauth/authorize
+oauth2/authorize
+sso/login
+saml/login
+# Misc
+backoffice/
+backoffice/login
+intranet/
+intranet/login
+internal/
+internal/login
+webmaster/
+webmaster/login
+sysadmin/
+sysadmin/login

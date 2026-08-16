@@ -1,4 +1,5 @@
-# Java/Spring/Tomcat
+# Java/Spring/Tomcat/JBoss/Enterprise
+# Spring Boot
 admin/
 admin/login
 login
@@ -11,7 +12,112 @@ console/login
 actuator/
 actuator/health
 actuator/info
+actuator/env
+actuator/beans
+actuator/mappings
+actuator/configprops
+actuator/metrics
+actuator/loggers
+actuator/heapdump
+actuator/threaddump
+actuator/scheduledtasks
+actuator/httptrace
+actuator/conditions
+actuator/shutdown
+# Spring Boot Admin
+spring-admin/
+spring-boot-admin/
+sba/
+applications/
+# Spring Security
+login
+oauth2/authorization
+oauth2/authorize
+# Tomcat Manager
+manager/html
+manager/status
+host-manager/html
+# JBoss / WildFly
 jmx-console/
-adminconsole/
 web-console/
+admin-console/
+jbossws/
+management/
+# GlassFish
+glassfishAdmin/
+# WebLogic
+console/
+console/login/LoginForm.jsp
+wls/
+# WebSphere
+ibm/console/
+admin/
+# Jenkins
+jenkins/
+jenkins/login
+jenkins/manage
+jenkins/script
+jenkins/configure
+jenkins/administrativeMonitor/
+# Nexus Repository
+nexus/
+nexus/#admin
+service/rest/
+# SonarQube
+sonarqube/
+sonarqube/sessions/new
+sonar/
+sonar/sessions/new
+# Artifactory
+artifactory/
+artifactory/webapp/
+ui/
+# Apache Hadoop
+hdfs/
+yarn/
+# Apache Spark
+spark/
+spark/jobs
+# Apache Solr
+solr/
+solr/#/
+solr/admin/
+# Apache Kafka (Confluent Control Center)
+confluent/
+control-center/
+# Elasticsearch / OpenSearch
+_cluster/health
+_cat/indices
+_cat/nodes
+kibana/
+opensearch-dashboards/
+# Grafana (JVM monitoring dashboards)
+grafana/
+grafana/login
+# Prometheus
+prometheus/
+prometheus/graph
+# Zipkin
+zipkin/
+# Jaeger
+jaeger/
+jaeger/search
+# Monitoring
 monitoring/
+status/
+health/
+healthcheck/
+info/
+metrics/
+# Liferay
+web/guest/home
+c/portal/login
+group/control_panel
+# Alfresco
+alfresco/
+alfresco/faces/jsp/login.jsp
+share/
+share/page/
+# Apache OFBiz
+webtools/control/main
+accounting/control/main

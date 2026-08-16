@@ -1,4 +1,5 @@
 # PHP & CMS admin paths (expanded)
+# Generic PHP admin
 admin/
 admin/login.php
 admin/index.php
@@ -10,21 +11,115 @@ panel/
 panel/login.php
 panel-administracion/
 panel-administracion/login.php
+# WordPress
 wp-admin/
 wp-login.php
 wp/wp-admin/
 wp/wp-login.php
+wp-admin/admin-ajax.php
+wp-admin/setup-config.php
+wp-admin/install.php
+wp-json/wp/v2/users
+# Joomla
 joomla/administrator/
 jindex.php?option=com_config
 joomla/index.php?option=com_users
 joomla/index.php?option=com_login
 index.php/admin/
 index.php?admin=1
+# Drupal
+user/login
+admin/config
+admin/modules
+admin/structure
+admin/people
+admin/content
+# Laravel
+nova/
+nova/login
+nova/dashboards
+nova/resources
+telescope/
+telescope/requests
+horizon/
+horizon/dashboard
+pulse/
+filament/
+filament/admin
+filament/login
+# Magento
+magento/admin
+admin/dashboard
+admin_1a2b3c/
+index.php/admin/
+downloader/
+# WooCommerce (WordPress)
+wp-admin/admin.php?page=wc-admin
+wp-admin/admin.php?page=wc-settings
+# PrestaShop
+prestashop/admin
+adminps/
+admin123/
+admin-dev/
+backoffice/
+# OpenCart
+opencart/admin
+admin/index.php?route=common/login
+# Moodle
+moodle/admin/
+moodle/login/index.php
+login/index.php
+# phpMyAdmin
+phpmyadmin/
+phpmyadmin/index.php
+pma/
+myadmin/
+mysql/
+mysqladmin/
+db/phpmyadmin/
+# Adminer
+adminer.php
+adminer/
+# Craft CMS
+admin/login
+cpresources/
+# October CMS / Winter CMS
+backend/
+backend/backend/auth/signin
+# Statamic
+cp/
+cp/auth/login
+# Concrete CMS (concrete5)
+index.php/dashboard
+ccm/
+# TYPO3
+typo3/
+typo3/login
+typo3/index.php
+typo3conf/
+# MediaWiki
+wiki/Special:UserLogin
+index.php/Special:UserLogin
+# ProcessWire
+processwire/
+processwire/login
+# SilverStripe
+admin/
+Security/login
+# Kirby CMS
+panel/
+panel/login
+# Pimcore
+admin/login
+admin/
+# Matomo (Piwik)
+matomo/
+piwik/
+analytics/
+# Generic
 user/login.php
 users/login.php
 account/login.php
 accounts/login.php
 cms/admin/
 cms/login.php
-phpmyadmin/
-adminer.php

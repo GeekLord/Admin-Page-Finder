@@ -1,4 +1,5 @@
-# Node/Express/Headless CMS
+# Node/Express/Headless CMS and modern JS frameworks
+# Generic Node/Express admin
 admin/
 admin/login
 api/admin
@@ -6,11 +7,98 @@ cms/admin
 cms/login
 dashboard
 dashboard/login
+# KeystoneJS
 keystone/signin
 keystone/signin/
+keystone/
+# Strapi
 strapi/admin
 strapi/admin/auth/login
+admin/auth/login
+# Directus
 directus/
 directus/admin
+directus/admin/login
+# Ghost
 ghost/ghost/
 ghost/admin/
+ghost/#/signin
+# Payload CMS
+admin/
+admin/login
+payload/admin
+# Sanity Studio
+studio/
+studio/desk
+sanity/
+sanity/desk
+# TinaCMS
+admin/
+tina/
+tina/admin
+# Contentful (self-hosted alternatives)
+contentful/
+# Prismic
+prismic/
+.prismic/
+# Hygraph (GraphCMS)
+hygraph/
+graphcms/
+# Next.js admin patterns
+_next/
+api/auth/signin
+api/auth/session
+admin/
+nextadmin/
+# Nuxt.js admin patterns
+_nuxt/
+nuxt/
+admin/
+# Remix admin
+admin/
+_admin/
+# SvelteKit admin
+admin/
+_app/
+# Medusa (headless e-commerce)
+admin/
+medusa/
+store/admin
+app/
+# Vendure (headless commerce)
+admin/
+admin-api
+admin-ui/
+# Shopify Hydrogen (headless storefront)
+admin/
+account/login
+# ApostropheCMS
+apos/
+login
+# Netlify CMS / Decap CMS
+admin/
+admin/index.html
+decap/
+# Builder.io
+builder/
+# Grafbase
+grafbase/
+# Express.js generic
+api/admin
+api/users
+api/auth
+api/login
+# NestJS admin
+admin/
+api/
+api/admin
+api/v1/admin
+# Adonis.js
+admin/
+admin/login
+# Hapi.js admin
+admin/
+admin/login
+# Fastify admin
+admin/
+api/admin

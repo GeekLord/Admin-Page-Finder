@@ -1,6 +1,11 @@
 # Mega admin wordlist (combined)
-# Includes entries from legacy script and common web sources.
+# Includes entries from legacy script, modern frameworks, DevOps tools,
+# database admin panels, auth/identity providers, cloud/SaaS, and e-commerce.
 # Keep one path per line; lines starting with # are comments.
+
+# ============================================================
+# Generic / Core admin paths
+# ============================================================
 admin/
 admin
 admin/login
@@ -46,6 +51,8 @@ login.php
 signin
 sign-in
 sign_in
+auth/login
+auth/signin
 user/login
 users/login
 account/login
@@ -104,39 +111,635 @@ root/
 root/login
 phpmyadmin/
 adminer.php
+backoffice/
+backoffice/login
+intranet/
+intranet/login
+internal/
+internal/login
+webmaster/
+webmaster/login
+sysadmin/
+sysadmin/login
+_admin/
+_admin/login
+
+# API-based admin endpoints
+api/admin
+api/admin/login
+api/v1/admin
+api/v1/auth/login
+api/v2/admin
+api/auth/signin
+api/auth/session
+api-auth/login/
+
+# SSO / OAuth
+oauth/authorize
+oauth2/authorize
+oauth2/authorization
+sso/login
+saml/login
+
+# ============================================================
 # ColdFusion variants
+# ============================================================
 admin/account.cfm
 admin/index.cfm
 admin/login.cfm
 admin/admin.cfm
 admin_area/admin.cfm
 admin_area/login.cfm
+
+# ============================================================
 # CGI variants
+# ============================================================
 admin/account.cgi
 admin/index.cgi
 admin/login.cgi
 admin/admin.cgi
 admin_area/admin.cgi
 admin_area/login.cgi
+
+# ============================================================
 # JS variants (legacy)
+# ============================================================
 admin/account.js
 admin/index.js
 admin/login.js
 admin/admin.js
-# Java/Spring
-actuator/
-actuator/health
-actuator/info
-jmx-console/
-adminconsole/
-web-console/
-monitoring/
-# Node/Headless
+
+# ============================================================
+# WordPress (expanded)
+# ============================================================
+wp-admin/admin-ajax.php
+wp-admin/setup-config.php
+wp-admin/install.php
+wp-json/wp/v2/users
+wp-admin/admin.php?page=wc-admin
+wp-admin/admin.php?page=wc-settings
+xmlrpc.php
+
+# ============================================================
+# Laravel ecosystem
+# ============================================================
+nova/
+nova/login
+nova/dashboards
+nova/resources
+telescope/
+telescope/requests
+horizon/
+horizon/dashboard
+pulse/
+filament/
+filament/admin
+filament/login
+
+# ============================================================
+# Ruby on Rails
+# ============================================================
+rails/info
+rails/info/routes
+rails/mailers
+sidekiq/
+sidekiq/busy
+sidekiq/queues
+letter_opener/
+blazer/
+flipper/
+flipper/features
+avo/
+avo/login
+avo/dashboards
+motor_admin/
+motor-admin/
+administrate/
+trestle/
+trestle/admin
+activeadmin/
+active_admin/
+
+# ============================================================
+# Django / Python
+# ============================================================
+admin/login/
+admin/doc/
+accounts/login/
+accounts/signup/
+accounts/password/reset/
+__debug__/
+wagtail/
+wagtail/login/
+admin/pages/
+admin/documents/
+admin/images/
+flower/
+flower/dashboard
+flower/tasks
+superset/
+superset/login/
+superset/dashboard/list/
+airflow/
+airflow/login
+airflow/home
+airflow/admin/
+jupyter/
+notebooks/
+lab/
+hub/login
+hub/signup
+mlflow/
+prefect/
+orion/
+docs
+redoc
+openapi.json
+
+# ============================================================
+# Node.js / Headless CMS
+# ============================================================
 keystone/signin
 keystone/signin/
 strapi/admin
 strapi/admin/auth/login
+admin/auth/login
 directus/
 directus/admin
+directus/admin/login
 ghost/ghost/
 ghost/admin/
+ghost/#/signin
+# Payload CMS
+payload/admin
+# Sanity Studio
+studio/
+studio/desk
+sanity/
+sanity/desk
+# TinaCMS
+tina/
+tina/admin
+# Decap CMS / Netlify CMS
+admin/index.html
+decap/
+# ApostropheCMS
+apos/
+# Next.js
+_next/
+nextadmin/
+# Nuxt.js
+_nuxt/
+nuxt/
+# Medusa Commerce
+medusa/
+store/admin
+# Vendure Commerce
+admin-api
+admin-ui/
+
+# ============================================================
+# Java / Spring / Enterprise
+# ============================================================
+actuator/
+actuator/health
+actuator/info
+actuator/env
+actuator/beans
+actuator/mappings
+actuator/configprops
+actuator/metrics
+actuator/loggers
+actuator/heapdump
+actuator/threaddump
+actuator/shutdown
+spring-admin/
+spring-boot-admin/
+sba/
+applications/
+jmx-console/
+adminconsole/
+web-console/
+admin-console/
+monitoring/
+manager/status
+host-manager/html
+console/login/LoginForm.jsp
+
+# ============================================================
+# DevOps / CI-CD / Monitoring tools
+# ============================================================
+# Jenkins
+jenkins/
+jenkins/login
+jenkins/manage
+jenkins/script
+jenkins/configure
+# GitLab
+gitlab/
+gitlab/users/sign_in
+-/admin
+# Drone CI
+drone/
+drone/login
+# ArgoCD
+argocd/
+argocd/login
+argo-cd/
+# Grafana
+grafana/
+grafana/login
+grafana/d/
+grafana/dashboards
+# Kibana / OpenSearch Dashboards
+kibana/
+kibana/app/
+opensearch-dashboards/
+opensearch-dashboards/app/
+# Prometheus
+prometheus/
+prometheus/graph
+prometheus/targets
+prometheus/alerts
+# Alertmanager
+alertmanager/
+alertmanager/#/alerts
+# Loki
+loki/
+# Portainer
+portainer/
+portainer/#!/auth
+# Traefik
+traefik/
+traefik/dashboard/
+api/rawdata
+api/http/routers
+# Nginx Proxy Manager
+nginx/proxy/
+nginx-proxy-manager/
+# Rancher
+rancher/
+rancher/login
+v3/
+# Kubernetes Dashboard
+kubernetes-dashboard/
+kubernetes/dashboard
+api/v1/namespaces/kubernetes-dashboard
+# Consul
+consul/
+ui/
+v1/agent/services
+v1/catalog/services
+# Vault (HashiCorp)
+vault/
+ui/vault/auth
+v1/sys/health
+# Nomad
+nomad/
+ui/jobs
+v1/jobs
+# Ansible AWX / Tower
+awx/
+tower/
+api/v2/
+# Sentry
+sentry/
+sentry/login
+# Zabbix
+zabbix/
+zabbix/index.php
+# Nagios
+nagios/
+nagios/cgi-bin/status.cgi
+# Icinga
+icingaweb2/
+icingaweb2/authentication/login
+# Graylog
+graylog/
+# Zipkin
+zipkin/
+# Jaeger
+jaeger/
+jaeger/search
+# SonarQube
+sonarqube/
+sonarqube/sessions/new
+sonar/
+sonar/sessions/new
+# Nexus Repository
+nexus/
+nexus/#admin
+service/rest/
+# Artifactory
+artifactory/
+artifactory/webapp/
+# Harbor (container registry)
+harbor/
+harbor/sign-in
+# GoCD
+go/
+go/admin
+# Bamboo
+bamboo/
+bamboo/userlogin!default.action
+# TeamCity
+teamcity/
+teamcity/login.html
+# Concourse CI
+concourse/
+sky/login
+
+# ============================================================
+# Database admin tools
+# ============================================================
+# phpMyAdmin
+phpmyadmin/index.php
+pma/
+myadmin/
+mysql/
+mysqladmin/
+db/phpmyadmin/
+# Adminer
+adminer/
+# pgAdmin
+pgadmin/
+pgadmin4/
+pgadmin/login
+pgadmin4/login
+# MongoDB Express
+mongo-express/
+mongo/
+mongodb/
+# Redis Commander
+redis-commander/
+redis/
+# Redis Insight
+redisinsight/
+# Elasticsearch Head
+_plugin/head/
+elasticsearch/
+# DBeaver CloudBeaver
+cloudbeaver/
+# Apache CouchDB
+_utils/
+_utils/#login
+couchdb/
+# InfluxDB
+influxdb/
+chronograf/
+# Neo4j
+neo4j/
+browser/
+# ArangoDB
+_db/
+_admin/aardvark/
+# AdminMongo
+adminmongo/
+# MinIO Console
+minio/
+minio/login
+minio/console/
+
+# ============================================================
+# Auth / Identity providers
+# ============================================================
+# Keycloak
+keycloak/
+keycloak/admin/
+keycloak/auth/
+auth/admin/
+auth/realms/master/
+realms/master/protocol/openid-connect/auth
+auth/admin/master/console/
+# Authentik
+authentik/
+-/admin/
+if/admin/
+if/flow/default-authentication-flow/
+# Okta (self-hosted)
+okta/
+admin/access/admins
+# Auth0 (dashboard paths)
+authorize
+login/callback
+v2/logout
+# FusionAuth
+fusionauth/
+# Dex (OIDC)
+dex/
+dex/auth
+# Authelia
+authelia/
+# Zitadel
+zitadel/
+ui/console/
+ui/login/
+# Casdoor
+casdoor/
+.well-known/openid-configuration
+# Ory Kratos
+kratos/
+self-service/login/browser
+# Ory Hydra
+hydra/
+oauth2/auth
+# Gluu
+oxauth/
+identity/
+
+# ============================================================
+# E-commerce platforms
+# ============================================================
+# Shopify (custom apps / self-hosted)
+store/admin
+# WooCommerce (WordPress)
+wp-admin/admin.php?page=wc-orders
+wp-admin/admin.php?page=wc-reports
+# Magento
+magento/admin
+index.php/admin/
+# PrestaShop
+prestashop/admin
+adminps/
+admin123/
+admin-dev/
+# OpenCart
+opencart/admin
+admin/index.php?route=common/login
+admin/index.php?route=common/dashboard
+# Shopware
+shopware/
+admin/#/login
+admin/#/sw/dashboard/index
+# Saleor
+graphql/
+# BigCommerce (self-hosted)
+bigcommerce/
+# Sylius
+admin/dashboard
+# Spree Commerce
+spree/admin
+admin/orders
+admin/products
+# Bagisto
+admin/login
+# nopCommerce
+Administration/
+# Zen Cart
+zc_admin/
+zen/admin/
+# osCommerce
+oscommerce/admin/
+oc-admin/
+# WHMCS
+whmcs/admin/
+# Snipcart
+snipcart/
+
+# ============================================================
+# Cloud / SaaS admin panels (self-hosted or local dev)
+# ============================================================
+# Firebase (local emulator)
+firebase/
+__/auth/
+emulator/
+# Supabase (self-hosted)
+supabase/
+project/default/
+# Appwrite
+appwrite/
+v1/health
+# PocketBase
+pocketbase/
+_/
+_/#/login
+# Hasura
+hasura/
+v1/graphql
+# Parse Dashboard
+parse-dashboard/
+parse/
+# Coolify
+coolify/
+# CapRover
+captain/
+# Cloudron
+cloudron/
+my/
+# RabbitMQ Management
+rabbitmq/
+#/queues
+# Apache Kafka UI
+kafka-ui/
+kafka/
+kafdrop/
+# Temporal
+temporal/
+namespaces/
+
+# ============================================================
+# Kubernetes / Container orchestration
+# ============================================================
+# Kubernetes Dashboard
+api/v1/namespaces/
+# Rancher
+v3/
+# OpenShift
+oauth/authorize
+# Istio (Kiali)
+kiali/
+kiali/console/
+# Linkerd
+linkerd/
+viz/
+# Longhorn
+longhorn/
+
+# ============================================================
+# Misc / Other modern platforms
+# ============================================================
+# n8n (workflow automation)
+n8n/
+workflow/
+# Budibase
+budibase/
+builder/
+# Appsmith
+appsmith/
+# Retool
+retool/
+apps/
+# Baserow
+baserow/
+# NocoDB
+nocodb/
+dashboard/#/signin
+# Metabase
+metabase/
+question/
+collection/
+# Redash
+redash/
+queries/
+# Outline
+outline/
+# BookStack
+bookstack/
+books/
+# WikiJS
+wiki/
+graphql
+# Gitea
+gitea/
+user/login
+# Mattermost
+mattermost/
+admin_console/
+# Rocket.Chat
+rocketchat/
+admin/rooms
+# Matrix (Synapse admin)
+synapse-admin/
+_synapse/admin/
+# Home Assistant
+homeassistant/
+lovelace/
+auth/authorize
+# Proxmox
+pve/
+api2/json/
+# Webmin
+webmin/
+usermin/
+# cPanel / WHM
+cpanel/
+whm/
+# Plesk
+plesk/
+login_up.php
+# DirectAdmin
+directadmin/
+CMD_LOGIN
+# ISPConfig
+ispconfig/
+# Cockpit (Linux admin)
+cockpit/
+cockpit/system
+# Netdata
+netdata/
+# Cacti
+cacti/
+cacti/index.php
+# LibreNMS
+librenms/
+# Pfsense
+pfsense/
+# OPNsense
+opnsense/
+ui/core/dashboard
+# UniFi
+manage/
+# Pi-hole
+admin/index.php
+# AdGuard Home
+adguard/
